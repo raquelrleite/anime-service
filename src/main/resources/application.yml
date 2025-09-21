@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: anime-service   # nome do aplicativo
+    #Threads normais são pesadas e consomem muita memória.
+    #Virtual threads são muito leves, você consegue criar milhares delas sem travar a aplicação.
+  threads:
+    virtual:
+      enabled: true
+
+server:
+  error:
+    include-stacktrace: on_param  # mostra stacktrace apenas se passar ?trace=true, não mostra para o cliente
+
+    # Quantas threads pode usar para processar requisições HTTP simultâneas
+  tomcat:
+    threads:
+      max: 20
